@@ -6,7 +6,7 @@ const app = express();
 app.get("/", (req, res) => {
     res.status(200);
     console.log("hellooooooooo")
-    let content = `<div style="color:blue;text-align:center;font-size: 40px">Hell00o</div>`
+    let content = `<div style="color:blue;text-align:center;font-size: 40px">Hello World</div>`
     res.send(`<html>
     <head>
     <meta http-equiv='cache-control' content='no-cache'> 
