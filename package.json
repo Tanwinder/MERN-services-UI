@@ -22,7 +22,7 @@
     "dev:build-client": "npm run build:client-dev",
     "build:client-dev": "webpack --config webpack.client.js --watch",
     "build:server-dev": "webpack --config webpack.server.js --watch",
-    "start": "node index.js",
+    "start": "node ./index.js",
     "build:client": "webpack --config webpack.client.prod.js",
     "build:server": "webpack --config webpack.server.prod.js",
     "build": "webpack --config webpack.client.prod.js"
@@ -45,7 +45,8 @@
     "reactstrap": "^8.9.0",
     "redux": "^4.0.5",
     "redux-saga": "^1.1.3",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "http-proxy-middleware": "^1.0.6"
   },
   "devDependencies": {
     "@babel/preset-react": "^7.12.10",
@@ -62,7 +63,6 @@
     "css-minimizer-webpack-plugin": "^1.2.0",
     "dotenv-webpack": "^6.0.0",
     "html-webpack-plugin": "^5.0.0",
-    "http-proxy-middleware": "^1.0.6",
     "mini-css-extract-plugin": "^1.3.5",
     "node-sass": "^5.0.0",
     "nodemon": "^2.0.6",
