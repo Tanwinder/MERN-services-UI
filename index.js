@@ -1,6 +1,6 @@
 // import express from "express";
 const express = require("express")
-const proxy = require('./proxy');
+const proxy = require('proxy');
 
 const app = express();
 proxy(app);
