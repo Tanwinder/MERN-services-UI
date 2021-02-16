@@ -1,4 +1,3 @@
-h1, body {
-    color: green;
-    font-size: 40px;
-}
+@import 'google.scss';
+@import 'bootstrapModify.scss'; 
+@import 'common.scss';
