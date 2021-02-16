@@ -1,13 +1,12 @@
 // import express from "express";
 const express = require("express")
-const proxy = require('proxy');
+const proxy = require(`${__dirname}/proxy`);
 
 const app = express();
-proxy(app);
 
 app.use(express.static('./'));
 app.use(express.static('dist'));
-
+proxy(app);
 app.get('/*', function(req, res) {
 	res.sendFile(`${ __dirname }/dist/index.html`);
 })
