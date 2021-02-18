@@ -2,7 +2,8 @@ import axios from 'axios';
 
 const instance = axios.create({
     baseURL: process.env.NODE_ENV === 'production' ? 'https://mern-services.herokuapp.com/' : 'http://localhost:5000',
-    withCredentials: true
+    withCredentials: true,
+    crossDomain: true
     // headers: {
     //     'content-type':'application/json'
     // },
