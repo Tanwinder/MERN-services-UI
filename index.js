@@ -17,7 +17,7 @@ app.use(express.static('dist'));
   app.use(
     '/auth/google',
     createProxyMiddleware({
-      target: 'http://localhost:5000',
+      target:  process.env.NODE_ENV === 'production' ? 'https://mern-services.herokuapp.com/' : 'http://localhost:5000',
       changeOrigin: true,
     })
   );
@@ -31,7 +31,8 @@ app.get('/*', function(req, res) {
 
 const PORT = process.env.PORT || 3000;
 
-console.log("process.env.NODE_ENV----", process.env.NODE_ENV, `${__dirname}/proxy`)
+console.log("process.env.NODE_ENV----", process.env.NODE_ENV, `${__dirname}/proxy`);
+console.log("process.env.HELLO-----", process.env.HELLO);
 app.listen(PORT, () => {
     console.log("server is running on port:- ", PORT)
 })
