@@ -1,4 +1,5 @@
-import axios from 'axios'
+import api from '../helpers/axiosApi';
+
 export const getFetchUser = () => {
     return async (dispatch, getState) => {
         const { user } = getState();
@@ -9,7 +10,7 @@ export const getFetchUser = () => {
             loadingUser: true
         })
         try {
-            const getUser = await axios.get("/api/currentuser");
+            const getUser = await api.getData("/api/currentuser");
             console.log("actionnn  getUser----", getUser)
             dispatch({
                 type: "USER_INFO",
@@ -33,7 +34,7 @@ export const addCreditClick = () => async (dispatch, getState) => {
         loadingCredits: true
     })
     try {
-        const getUser = await axios.post("/api/addcredits", {
+        const getUser = await api.postData("/api/addcredits", {
             credits: 5 
         });
         dispatch({

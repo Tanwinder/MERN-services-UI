@@ -1,4 +1,4 @@
-// const Dotenv = require('dotenv-webpack');
+const Dotenv = require('dotenv-webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
     // Tell webpack to run babel on every file it runs through
@@ -19,8 +19,8 @@ module.exports = {
         ]
     },
     plugins: [
-        new MiniCssExtractPlugin()
+        new MiniCssExtractPlugin(),
         // new WebpackManifestPlugin()
-        // new Dotenv()
+        new Dotenv()
     ]
 };

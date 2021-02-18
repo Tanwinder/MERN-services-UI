@@ -17,6 +17,6 @@ ReactDOM.render(
     document.getElementById("root")
 );
 
-console.log("process is env-----", process.env.NODE_ENV)
-console.log("process is env-----", process.env.PUBLISHABLE_KEY)
-console.log("process is env-----", process.env.HELLO)
+console.log("process.env.NODE_ENV is env-----", process.env.NODE_ENV)
+// console.log("process.env.PUBLISHABLE_KEY is env-----", process.env.PUBLISHABLE_KEY)
+console.log("process is process.env.HELLO-----", process.env.HELLO)
