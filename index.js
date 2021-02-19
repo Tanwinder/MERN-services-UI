@@ -4,20 +4,20 @@ const { createProxyMiddleware } = require('http-proxy-middleware');
 // require('dotenv').config()
 
 const app = express();
-
+const serviceUrl = process.env.NODE_ENV === 'production' ? 'https://mern-services.herokuapp.com/' : 'http://localhost:5000';
 app.use(express.static('./'));
 app.use(express.static('dist'));
-// app.use(
-//     '/api/*',
-//     createProxyMiddleware({
-//       target: 'http://localhost:5000',
-//       changeOrigin: true,
-//     })
-//   );
+app.use(
+    '/api/*',
+    createProxyMiddleware({
+      target: serviceUrl,
+      changeOrigin: true,
+    })
+  );
   app.use(
     '/auth/google',
     createProxyMiddleware({
-      target:  process.env.NODE_ENV === 'production' ? 'https://mern-services.herokuapp.com/' : 'http://localhost:5000',
+      target:  serviceUrl,
       changeOrigin: true,
     })
   );
