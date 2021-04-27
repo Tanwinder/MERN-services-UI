@@ -1,9 +1,9 @@
 import "@babel/polyfill";
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './app'
+import App from './App'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './helpers/scss/global.scss'
+import './scss/global.scss'
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './store/stores'
@@ -18,5 +18,4 @@ ReactDOM.render(
 );
 
 console.log("process.env.NODE_ENV is env-----", process.env.NODE_ENV)
-// console.log("process.env.PUBLISHABLE_KEY is env-----", process.env.PUBLISHABLE_KEY)
 console.log("process is process.env.HELLO-----", process.env.HELLO)

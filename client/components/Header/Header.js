@@ -1,28 +1,24 @@
 import React, { useState } from 'react';
+import { useDispatch,  } from 'react-redux';
 import {
   Collapse,
   Navbar,
   NavbarToggler,
   NavbarBrand,
   Nav,
-  NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  NavbarText,
-  Button
 } from 'reactstrap';
 import { Link } from 'react-router-dom'
-import LogoutHeader from '../presentational/LogoutHeader'
-import LoginHeader from '../presentational/LoginHeader'
+import LogoutHeader from './LogoutHeader'
+import LoginHeader from './LoginHeader'
+import { getFetchUser } from '../../actions/fetchUser';
 
 const Header = (props) => {
-    const { userInfo, addCreditClick, loadingCredits } = props;
+  const { userInfo, addCreditClick, loadingCredits } = props;
   const [isOpen, setIsOpen] = useState(false);
-
   const toggle = () => setIsOpen(!isOpen);
+
+
+  // userInfo={userInfo} addCreditClick={addCreditClick} loadingCredits={loadingCredits}
 
   return (
     <div>

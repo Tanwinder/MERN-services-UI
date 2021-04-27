@@ -1,4 +1,4 @@
-import api from '../helpers/axiosApi';
+import { fetchCurrentUser } from '../api/axiosApi';
 
 export const getFetchUser = () => {
     return async (dispatch, getState) => {
@@ -10,7 +10,7 @@ export const getFetchUser = () => {
             loadingUser: true
         })
         try {
-            const getUser = await api.getData("/api/currentuser");
+            const getUser = await fetchCurrentUser("/api/currentuser");
             console.log("actionnn  getUser----", getUser)
             dispatch({
                 type: "USER_INFO",
@@ -28,28 +28,28 @@ export const getFetchUser = () => {
     }
 }
 
-export const addCreditClick = () => async (dispatch, getState) => {
-    dispatch({
-        type: "LOADING_CREDIT",
-        loadingCredits: true
-    })
-    try {
-        const getUser = await api.postData("/api/addcredits", {
-            credits: 5 
-        });
-        dispatch({
-            type: "USER_INFO",
-            userInfo: getUser && getUser.data,
-            loadingCredits: false
-        })
-    } catch (error) {
-        console.log("error credits----", error)
-        dispatch({
-            type: "ERROR",
-            payload: error,
-            loadingCredits: false 
-        })
-    }
+// export const addCreditClick = () => async (dispatch, getState) => {
+//     dispatch({
+//         type: "LOADING_CREDIT",
+//         loadingCredits: true
+//     })
+//     try {
+//         const getUser = await api.postData("/api/addcredits", {
+//             credits: 5 
+//         });
+//         dispatch({
+//             type: "USER_INFO",
+//             userInfo: getUser && getUser.data,
+//             loadingCredits: false
+//         })
+//     } catch (error) {
+//         console.log("error credits----", error)
+//         dispatch({
+//             type: "ERROR",
+//             payload: error,
+//             loadingCredits: false 
+//         })
+//     }
 
 
-}
+// }

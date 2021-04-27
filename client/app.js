@@ -1,10 +1,12 @@
 import React, { Component, Fragment } from 'react';
-import Header from './components/header'
-import {Routes} from './routes';
 import { connect } from 'react-redux'
-import { Alert } from 'reactstrap'
+import { Container, CssBaseline } from '@material-ui/core'
+
+import Header from './components/Header/Header'
+import { Routes } from './routes';
 import {getFetchUser, addCreditClick} from './actions/fetchUser'
-import Loading from './presentational/loading';
+import Footer from './components/Footer/Footer'
+
 class App extends Component {
     componentDidMount() {
         this.props.fetchUser();
@@ -13,25 +15,13 @@ class App extends Component {
         const { userInfo, loadingUser, error, addCreditClick, loadingCredits }= this.props;
         console.log("componnn this.props.userInfo-------", userInfo, loadingUser)
         return (
-            // <div>
-            //     {
-            //         loadingUser ?
-            //         <Loading />
-            //         :
-            //         !!error ?
-            //         <Alert color="danger">
-            //             current user service is failing. Please check {`${error}`}
-            //         </Alert>
-            //         :
-            //         <Fragment>
-            //             <Header userInfo={userInfo} />
-            //             <Routes />
-            //         </Fragment>
-            //     }
-            // </div>
             <Fragment>
-                <Header userInfo={userInfo} addCreditClick={addCreditClick} loadingCredits={loadingCredits} />
-                <Routes />
+                <Header />
+                <CssBaseline />
+                <Container className="appContainer">
+                    <Routes />
+                </Container>
+                <Footer />
             </Fragment>
         )
     }
@@ -49,7 +39,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch, getState) => {
     return {
         fetchUser: () => dispatch(getFetchUser()),
-        addCreditClick: () => dispatch(addCreditClick())
+        // addCreditClick: () => dispatch(addCreditClick())
     }
 }
 
